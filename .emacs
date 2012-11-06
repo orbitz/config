@@ -35,19 +35,11 @@
 (require 'epa-file)
 (epa-file-enable)
 
-;(autoload 'smalltalk-mode "/opt/local/stow/gnu-smalltalk/share/emacs/site-lisp/smalltalk-mode.elc" "" t)
-
 (autoload 'php-mode "php-mode" "Mode for editing PHP source files")
 (add-to-list 'auto-mode-alist '("\\.\\(inc\\|php[s34]?\\)" . php-mode))
 
 (add-to-list 'load-path "~/.emacs-progmode")
-;(add-to-list 'load-path "/Applications/Mozart.app/Contents/Resources/share/elisp")
-;(require 'oz)
 
-;(setq auto-mode-alist (cons '("\\.py$" . python-mode) auto-mode-alist))
-;(setq interpreter-mode-alist (cons '("python" . python-mode)
-;                                       interpreter-mode-alist))
-;(autoload 'python-mode "python-mode" "Python editing mode." t)
 (add-hook 'python-mode-hook
  '(lambda ()
     (local-set-key [(control m)] 'newline-and-indent)
@@ -73,14 +65,11 @@
      (local-set-key [(control m)] 'newline-and-indent)
      (setq indent-tabs-mode nil)))
 
-;(autoload 'flex-mode "flex-mode" "Flex Editing" t)
-
 ; Erlang stuff
 (add-to-list 'load-path "/opt/local/lib/erlang/lib/tools-2.6.7/emacs/")
 (setq erlang-root-dir "/opt/local")
 (add-to-list 'exec-path "/opt/local")
 (require 'erlang-start)
-;(require 'kaz-erlang)
 (require 'two-mode-mode)
 ;; Start it as a node
 (setq inferior-erlang-machine "/opt/local/bin/erl")
@@ -93,41 +82,6 @@
      (setq erlang-compile-function 'kaz-erlang-compile)
      (define-key erlang-mode-map "\C-c!" 'erlang-shell-display)
 ))
-
-; Haskell mode
-(load "~/.emacs-progmode/haskell-mode-2.1/haskell-site-file")
-(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
-(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
-
-
-; Lets you do outline mode in literate haskell
-;; (set (make-local-variable 'outline-regexp)
-;;      "^\\([0-9]+\\.[0-9\\.]*\\)")
-;; (set (make-local-variable 'outline-level)
-;;      (lambda ()
-;;        (save-excursion
-;; 	 (re-search-forward
-;; 	  "^\\([0-9]+\\.[0-9\\.]*\\)" nil t)
-;; 	 (length (replace-regexp-in-string "\\([0-9]+\\)" "$1" (match-string 1)))))
-     
-     
-
-;(add-to-list 'load-path "/usr/local/oz/share/elisp")
-;(require 'oz)
-
-
-; SES stuff
-;(add-to-list 'load-path "~/.emacs-progmode/ses21-031130")
-;(autoload 'ses-mode "ses.el" "Spreadsheet mode" t)
-;(add-to-list 'auto-mode-alist '("\\.ses$" . ses-mode))
-
-; Caml Mode
-;; (add-to-list 'load-path "~/.emacs-progmode/caml-mode")
-;; (setq auto-mode-alist
-;;       (cons '("\\.ml[iylp]?$" . caml-mode) auto-mode-alist))
-;; (autoload 'caml-mode "caml" "Major mode for editing Caml code." t)
-;; (autoload 'run-caml "inf-caml" "Run an inferior Caml process." t)
-;; (require 'caml-font)
 
 ; Tuareg Mode
 (add-to-list 'load-path "~/.emacs-progmode/tuareg-2.0.2")
@@ -163,20 +117,8 @@
  '(safe-local-variable-values (quote ((allout-layout . t))))
  '(tuareg-in-indent 0))
 
-; Scala
-;(add-to-list 'load-path "/Users/orbitz/bin/scala/misc/scala-tool-support/emacs")
-;(require 'scala-mode-auto)
-
-
-;; (add-to-list 'load-path "~/.emacs-progmode/ess-5.4")
-;; (require 'ess-site)
-
 (add-to-list 'load-path "~/.emacs-progmode/clojure-mode")
 (require 'clojure-mode)
-
-; Matlab
-(autoload 'matlab-mode "~/.emacs-progmode/matlab.el" "Enter Matlab mode." t) 
-(setq auto-mode-alist (cons '("\\.m\\'" . matlab-mode) auto-mode-alist)) 
 
 (require 'rst)
 (setq auto-mode-alist
@@ -192,7 +134,7 @@
   (background-color . "black")
   (foreground-color . "white")))
 
-(setq initial-frame-alist 
+(setq initial-frame-alist
   '((background-mode . dark)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
