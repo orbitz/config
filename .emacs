@@ -30,10 +30,12 @@
 
 (setq-default show-trailing-whitespace t)
 
+;; For connecting to a NixOS machine
+;; https://nixos.org/wiki/Emacs_configuration
 (require 'tramp)
-
-(require 'epa-file)
-(epa-file-enable)
+(add-to-list 'tramp-remote-path "/var/run/current-system/sw/bin")
+(setq tramp-debug-buffer t)
+(setq tramp-verbose 10)
 
 (autoload 'php-mode "php-mode" "Mode for editing PHP source files")
 (add-to-list 'auto-mode-alist '("\\.\\(inc\\|php[s34]?\\)" . php-mode))
@@ -142,3 +144,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+;; Enable GPG stuff
+;; (require 'epa-file)
+;; (epa-file-enable)
