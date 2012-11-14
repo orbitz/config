@@ -68,20 +68,18 @@
      (setq indent-tabs-mode nil)))
 
 ; Erlang stuff
-(add-to-list 'load-path "/opt/local/lib/erlang/lib/tools-2.6.7/emacs/")
-(setq erlang-root-dir "/opt/local")
-(add-to-list 'exec-path "/opt/local")
+(add-to-list 'load-path "~/.nix-profile/lib/erlang/lib/tools-2.6.7/emacs/")
 (require 'erlang-start)
-(require 'two-mode-mode)
-;; Start it as a node
-(setq inferior-erlang-machine "/opt/local/bin/erl")
-(setq inferior-erlang-machine-options '("-sname" "emacs"))
+;; (require 'two-mode-mode)
+;; ;; Start it as a node
+;; (setq inferior-erlang-machine "/opt/local/bin/erl")
+;; (setq inferior-erlang-machine-options '("-sname" "emacs"))
 
 (add-hook 'erlang-mode-hook
   '(lambda ()
      (local-set-key [(control m)] 'newline-and-indent)
      (setq indent-tabs-mode nil)
-     (setq erlang-compile-function 'kaz-erlang-compile)
+     ;;(setq erlang-compile-function 'kaz-erlang-compile)
      (define-key erlang-mode-map "\C-c!" 'erlang-shell-display)
 ))
 
